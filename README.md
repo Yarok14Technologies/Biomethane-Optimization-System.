@@ -110,81 +110,6 @@ The Biomethane Optimization System is a hybrid hardware–software platform that
 
 ---
 
-## 📁 Repository Structure
-
-```bash
-Biomethane-Optimization-System/
-│
-├── .gitignore
-├── LICENSE
-├── README.md
-│
-├── docs/
-│   ├── System-Overview.pdf
-│   ├── User-Manual.md
-│   ├── system-architecture.md
-│   ├── process-cycle.md
-│   ├── hardware-specifications.md
-│   └── economic-model.md
-│
-├── frontend/                         # Flutter SCADA PLC Frontend
-│   ├── lib/
-│   ├── assets/
-│   ├── pubspec.yaml
-│   └── README.md
-│
-├── backend/                          # Python API & SCADA Backend
-│   ├── api/
-│   ├── controllers/
-│   ├── models/
-│   ├── db/
-│   ├── utils/
-│   ├── requirements.txt
-│   └── README.md
-│
-├── database/                         # SQL database schema & migrations
-│   ├── schema.sql
-│   └── migrations/
-│
-├── firmware/                         # Embedded firmware for controllers
-│   ├── esp8266/                      # Cloud communication
-│   └── msp430/                       # General-purpose processing
-│
-├── schematics/                       # Hardware circuit diagrams & wiring
-│
-├── cloud/
-│   └── aws-config/                   # AWS IoT, Lambda, DynamoDB, S3, IAM
-│
-└── assets/
-    └── diagrams/                     # System diagrams, PNG/SVG
-
-backend/
-│── app.py
-│── requirements.txt
-│── Dockerfile
-│── docker-compose.yml
-│── manage.py
-│── migrations/
-│── core/
-│    ├── config.py
-│    ├── database.py
-│── api/
-│    ├── routes/
-│    ├── controllers/
-│── optimization/
-│    ├── energy_optimizer.py
-│    ├── methane_yield_model.py
-│── hardware/
-│    ├── device_manager.py
-│    ├── esp8266_client.py
-│── aws/
-│    ├── s3_client.py
-│    ├── cloud_logger.py
-│── .env
-
-
-```
-***
 🛠️ Backend Setup Instructions — Python API
 
 The Python backend powers the Biomethane Optimization System, enabling:
@@ -301,3 +226,80 @@ gunicorn app:app
 ✅ Backend is Ready
 
 Your backend API is now ready to serve the Flutter SCADA Frontend, IoT firmware, and AWS cloud.
+
+
+## 📁 Repository Structure
+
+```bash
+Biomethane-Optimization-System/
+│
+├── .gitignore
+├── LICENSE
+├── README.md
+│
+├── docs/
+│   ├── System-Overview.pdf
+│   ├── User-Manual.md
+│   ├── system-architecture.md
+│   ├── process-cycle.md
+│   ├── hardware-specifications.md
+│   └── economic-model.md
+│
+├── frontend/                         # Flutter SCADA PLC Frontend
+│   ├── lib/
+│   ├── assets/
+│   ├── pubspec.yaml
+│   └── README.md
+│
+├── backend/                          # Python API & SCADA Backend
+│   ├── api/
+│   ├── controllers/
+│   ├── models/
+│   ├── db/
+│   ├── utils/
+│   ├── requirements.txt
+│   └── README.md
+│
+├── database/                         # SQL database schema & migrations
+│   ├── schema.sql
+│   └── migrations/
+│
+├── firmware/                         # Embedded firmware for controllers
+│   ├── esp8266/                      # Cloud communication
+│   └── msp430/                       # General-purpose processing
+│
+├── schematics/                       # Hardware circuit diagrams & wiring
+│
+├── cloud/
+│   └── aws-config/                   # AWS IoT, Lambda, DynamoDB, S3, IAM
+│
+└── assets/
+    └── diagrams/                     # System diagrams, PNG/SVG
+
+backend/
+│── app.py
+│── requirements.txt
+│── Dockerfile
+│── docker-compose.yml
+│── manage.py
+│── migrations/
+│── core/
+│    ├── config.py
+│    ├── database.py
+│── api/
+│    ├── routes/
+│    ├── controllers/
+│── optimization/
+│    ├── energy_optimizer.py
+│    ├── methane_yield_model.py
+│── hardware/
+│    ├── device_manager.py
+│    ├── esp8266_client.py
+│── aws/
+│    ├── s3_client.py
+│    ├── cloud_logger.py
+│── .env
+
+
+```
+
