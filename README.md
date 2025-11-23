@@ -158,7 +158,34 @@ Biomethane-Optimization-System/
 └── assets/
     └── diagrams/                     # System diagrams, PNG/SVG
 
-    ```
+backend/
+│── app.py
+│── requirements.txt
+│── Dockerfile
+│── docker-compose.yml
+│── manage.py
+│── migrations/
+│── core/
+│    ├── config.py
+│    ├── database.py
+│── api/
+│    ├── routes/
+│    ├── controllers/
+│── optimization/
+│    ├── energy_optimizer.py
+│    ├── methane_yield_model.py
+│── hardware/
+│    ├── device_manager.py
+│    ├── esp8266_client.py
+│── aws/
+│    ├── s3_client.py
+│    ├── cloud_logger.py
+│── .env
+
+
+```
+***
+
 ## 🛠️ Setup Instructions: Backend (Python API)
 
 The Python backend is responsible for developing the API that manages data interaction, potentially includes the economic algorithm logic, and interfaces between the cloud (AWS), database (SQL), and possibly the hardware/firmware components.
