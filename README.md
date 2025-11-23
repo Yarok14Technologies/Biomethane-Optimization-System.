@@ -300,68 +300,175 @@ Biomethane-Optimization-System/
 ├── LICENSE
 ├── README.md
 │
-├── docs/
+├── docs/                                      # Documentation Hub
 │   ├── System-Overview.pdf
 │   ├── User-Manual.md
 │   ├── system-architecture.md
 │   ├── process-cycle.md
 │   ├── hardware-specifications.md
-│   └── economic-model.md
+│   ├── economic-model.md
+│   ├── api-reference.md
+│   ├── installation-guide.md
+│   └── firmware-docs.md
 │
-├── frontend/                         # Flutter SCADA PLC Frontend
+├── frontend/                                  # Flutter SCADA App
 │   ├── lib/
+│   │   ├── main.dart
+│   │   ├── screens/
+│   │   │   ├── dashboard_screen.dart
+│   │   │   ├── analytics_screen.dart
+│   │   │   ├── device_control_screen.dart
+│   │   │   ├── login_screen.dart
+│   │   │   └── settings_screen.dart
+│   │   ├── widgets/
+│   │   │   ├── chart_widget.dart
+│   │   │   ├── sensor_tile.dart
+│   │   │   └── status_indicator.dart
+│   │   ├── models/
+│   │   ├── services/
+│   │   ├── utils/
+│   │   └── theme/
 │   ├── assets/
+│   │   ├── icons/
+│   │   ├── images/
+│   │   └── fonts/
+│   ├── test/
 │   ├── pubspec.yaml
 │   └── README.md
 │
-├── backend/                          # Python API & SCADA Backend
-│   ├── api/
-│   ├── controllers/
-│   ├── models/
-│   ├── db/
-│   ├── utils/
+├── backend/                                   # Python API + SCADA Server
+│   ├── app.py
+│   ├── manage.py
 │   ├── requirements.txt
-│   └── README.md
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   ├── .env
+│   │
+│   ├── core/
+│   │   ├── config.py
+│   │   ├── database.py
+│   │   ├── logger.py
+│   │   └── security.py
+│   │
+│   ├── api/
+│   │   ├── routes/
+│   │   │   ├── sensor_routes.py
+│   │   │   ├── device_routes.py
+│   │   │   ├── optimization_routes.py
+│   │   │   └── auth_routes.py
+│   │   ├── controllers/
+│   │   │   ├── sensor_controller.py
+│   │   │   ├── device_controller.py
+│   │   │   ├── optimization_controller.py
+│   │   │   └── auth_controller.py
+│   │   └── schemas/
+│   │       ├── sensor_schema.py
+│   │       ├── device_schema.py
+│   │       ├── auth_schema.py
+│   │       └── optimization_schema.py
+│   │
+│   ├── models/
+│   │   ├── sensor_model.py
+│   │   ├── device_model.py
+│   │   ├── user_model.py
+│   │   └── optimization_log_model.py
+│   │
+│   ├── db/
+│   │   ├── crud/
+│   │   │   ├── crud_sensor.py
+│   │   │   ├── crud_device.py
+│   │   │   ├── crud_user.py
+│   │   │   └── crud_optimization.py
+│   │   ├── session.py
+│   │   └── base.py
+│   │
+│   ├── optimization/
+│   │   ├── energy_optimizer.py
+│   │   ├── methane_yield_model.py
+│   │   ├── cost_model.py
+│   │   └── anomaly_detector.py
+│   │
+│   ├── hardware/
+│   │   ├── esp8266_client.py
+│   │   ├── msp430_client.py
+│   │   ├── device_manager.py
+│   │   └── sensor_parser.py
+│   │
+│   ├── aws/
+│   │   ├── s3_client.py
+│   │   ├── cloud_logger.py
+│   │   ├── mqtt_publisher.py
+│   │   └── iot_policy.json
+│   │
+│   ├── migrations/
+│   │   ├── alembic.ini
+│   │   └── versions/
+│   │       ├── 0001_init.py
+│   │       └── 0002_add_optimization_tables.py
+│   │
+│   └── utils/
+│       ├── validators.py
+│       ├── helpers.py
+│       ├── constants.py
+│       └── exceptions.py
 │
-├── database/                         # SQL database schema & migrations
+├── database/
 │   ├── schema.sql
-│   └── migrations/
+│   ├── migrations/
+│   │   ├── 0001_init.sql
+│   │   ├── 0002_add_energy_table.sql
+│   │   └── 0003_add_optimization_logs.sql
+│   └── seeds/
+│       ├── initial_data.sql
+│       └── demo_data.sql
 │
-├── firmware/                         # Embedded firmware for controllers
-│   ├── esp8266/                      # Cloud communication
-│   └── msp430/                       # General-purpose processing
+├── firmware/                                 # Embedded Systems
+│   ├── esp8266/
+│   │   ├── esp_main.cpp
+│   │   ├── wifi_manager.cpp
+│   │   ├── mqtt_client.cpp
+│   │   ├── sensor_reader.cpp
+│   │   ├── ota_update.cpp
+│   │   └── config.h
+│   │
+│   ├── msp430/
+│   │   ├── main.c
+│   │   ├── adc_driver.c
+│   │   ├── pwm_control.c
+│   │   ├── temp_sensor.c
+│   │   ├── ph_sensor.c
+│   │   ├── motor_controller.c
+│   │   ├── uart_comm.c
+│   │   └── board_config.h
 │
-├── schematics/                       # Hardware circuit diagrams & wiring
+├── schematics/
+│   ├── main-circuit.pdf
+│   ├── controller-wiring.png
+│   ├── power-distribution.svg
+│   └── gas-flow-diagram.png
 │
 ├── cloud/
-│   └── aws-config/                   # AWS IoT, Lambda, DynamoDB, S3, IAM
+│   ├── aws-config/
+│   │   ├── iot-core-setup.md
+│   │   ├── lambda-functions/
+│   │   │   ├── process-telemetry.py
+│   │   │   ├── send-alerts.py
+│   │   │   └── optimize-energy.py
+│   │   ├── dynamodb/
+│   │   │   └── telemetry-table.json
+│   │   ├── iam/
+│   │   │   ├── policies.json
+│   │   │   └── roles.json
+│   │   └── s3/
+│   │       └── buckets-config.json
 │
 └── assets/
-    └── diagrams/                     # System diagrams, PNG/SVG
+    └── diagrams/
+        ├── system-architecture.png
+        ├── data-flow.svg
+        ├── optimization-engine.png
+        └── cloud-architecture.png
 
-backend/
-│── app.py
-│── requirements.txt
-│── Dockerfile
-│── docker-compose.yml
-│── manage.py
-│── migrations/
-│── core/
-│    ├── config.py
-│    ├── database.py
-│── api/
-│    ├── routes/
-│    ├── controllers/
-│── optimization/
-│    ├── energy_optimizer.py
-│    ├── methane_yield_model.py
-│── hardware/
-│    ├── device_manager.py
-│    ├── esp8266_client.py
-│── aws/
-│    ├── s3_client.py
-│    ├── cloud_logger.py
-│── .env
 
 
 ```
