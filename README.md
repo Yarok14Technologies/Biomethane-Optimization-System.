@@ -311,7 +311,7 @@ Biomethane-Optimization-System/
 │   ├── installation-guide.md
 │   └── firmware-docs.md
 │
-├── frontend/                                  # Flutter SCADA App
+├── frontend_biomethane_scada/                                  # Flutter SCADA App
 │   ├── lib/
 │   │   ├── main.dart
 │   │   ├── screens/
