@@ -366,3 +366,167 @@ backend/
 
 ```
 
+
+# 🖥️ Software & Hardware Requirements
+
+The Biomethane Optimization System includes hardware (sensors, controllers, ESP8266/MSP430) and software (Python backend, SQL DB, AWS cloud, Flutter SCADA).  
+This section lists all requirements needed to run and develop the system.
+
+---
+
+## ✅ 1. Software Requirements
+
+### 🔹 Operating System
+- Windows 10 / 11  
+- Ubuntu 20.04+ / Debian-based Linux  
+- macOS 12+  
+
+---
+
+### 🔹 Programming Languages
+- **Python 3.10+** (Backend API)
+- **SQL** (PostgreSQL / MySQL)
+- **C / C++** (ESP8266, MSP430 firmware)
+- **Verilog** (optional — FPGA-based architecture)
+- **Dart** (Flutter SCADA UI)
+
+---
+
+### 🔹 Backend Dependencies
+
+Install backend dependencies:
+
+```bash
+pip install -r requirements.txt
+````
+
+The backend uses:
+
+* Flask / FastAPI
+* SQLAlchemy
+* Flask-Migrate / Alembic
+* Requests
+* Boto3 (AWS SDK)
+* python-dotenv
+* NumPy / SciPy (optimization algorithms)
+
+---
+
+### 🔹 Database Software
+
+Supported SQL databases:
+
+* **PostgreSQL 14+** (recommended)
+* MySQL 8+
+* SQLite (local testing)
+
+---
+
+### 🔹 Cloud Requirements (AWS)
+
+If using AWS, configure the following:
+
+* AWS S3 (storage)
+* AWS IAM (roles & access keys)
+* AWS IoT Core (optional telemetry)
+
+Add to `.env`:
+
+```ini
+AWS_ACCESS_KEY_ID=your_key
+AWS_SECRET_ACCESS_KEY=your_secret
+AWS_REGION=ap-south-1
+AWS_S3_BUCKET=my-bucket
+```
+
+---
+
+### 🔹 Development Tools
+
+* VS Code / PyCharm
+* Postman / Thunder Client
+* Git + GitHub / GitLab
+* Docker (optional but recommended)
+* Serial Monitor (Arduino IDE / PuTTY)
+
+---
+
+## ⚙️ 2. Hardware Requirements
+
+### 🔹 Microcontrollers & Boards
+
+* **ESP8266 NodeMCU**
+
+  * WiFi telemetry & SCADA communication
+
+* **TI MSP430**
+
+  * Real-time control for:
+
+    * Temperature regulation
+    * pH dosing
+    * Agitator motor
+    * Heating system
+    * Sensor data acquisition
+
+---
+
+### 🔹 Sensors
+
+* Temperature sensor (DS18B20 / Thermocouple)
+* pH sensor module
+* Pressure sensor (optional)
+* Flow sensor
+* Biogas quality sensor (MQ-series)
+
+---
+
+### 🔹 Actuators / Control Hardware
+
+* Stepper/Servo agitator motor
+
+* Relay module / SSR for:
+
+  * Heater
+  * pH pump
+
+* Air compressor
+
+* SPM membrane gas purification system
+
+---
+
+### 🔹 Energy Monitoring
+
+* Digital energy meter
+* ADC module (optional external to MSP430)
+
+---
+
+### 🔹 Communication Modules
+
+* ESP8266 WiFi
+* UART (ESP8266 ↔ MSP430)
+* Optional SPI / CAN modules
+
+---
+
+### 🔹 Power Requirements
+
+* 5V DC for ESP8266
+* 3.3V for sensors
+* 12–24V for motors/pumps
+* Stabilized PSU recommended
+
+---
+
+## 📡 3. Optional Add-ons (Advanced)
+
+* FPGA (Xilinx/Lattice) for hardware-accelerated optimization
+* LoRa / NB-IoT modules for remote farms
+* Google Edge TPU for ML inference
+* CCTV / thermal monitoring system
+
+---
+
+
