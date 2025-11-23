@@ -296,13 +296,19 @@ python manage.py migrate
 The system uses AWS for cloud storage, IoT logs, and monitoring. Update the .env file with the following variables.
 
 🔐 Add AWS Credentials
-Ini, TOML
 
-# API and Logging Configuration
-API_KEY_SECRET=your_api_secret
-AWS_S3_BUCKET_NAME=your_bucket
-LOGGING_LEVEL=INFO
+## 🔐 Environment Variables
 
+Create a `.env` file and add:
+
+```ini
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=root
+DB_PASSWORD=password
+DB_NAME=biogas_system
+
+```
 # Optimization Constraint
 OPTIMIZATION_ENERGY_LIMIT=0.10
 
