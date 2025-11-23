@@ -224,94 +224,112 @@ Install all necessary Python packages (like Flask/Django/FastAPI for the API, an
 pip install -r requirements.txt
  ```
 
-🛠️ Backend Setup Instructions — Python API
+## 🛠️ Setup Instructions: Backend (Python API)
 
-This backend powers the Biomethane Optimization System, handling API operations, SQL data interaction, AWS cloud communication, optimization logic, and hardware/firmware integration.
+This backend powers the **Biomethane Optimization System**, handling: **API operations**, **SQL database interaction**, **AWS cloud communication**, **Optimization & economic logic**, and **Hardware/Firmware (ESP8266/MSP430) integration**.
 
-🔧 1. Prerequisites
+---
 
-Ensure you have the following installed:
+### 🔧 1. Prerequisites
 
-Python 3.x
+Ensure your environment has the following installed:
 
-pip
+* **Python 3.x**
+* **pip**
+* **Virtual environment** support (`venv` or `conda`) — *highly recommended*
 
-Virtual environment support (venv or conda) — recommended
+### 📁 2. Navigate & Create Virtual Environment
 
-📁 2. Navigate & Create Virtual Environment
+1.  Go to the backend directory:
 
-Go to the backend directory:
+    ```bash
+    cd Biomethane-Optimization-System/backend
+    ```
 
-cd Biomethane-Optimization-System/backend
+2.  Create a virtual environment named `venv`:
 
+    ```bash
+    python -m venv venv
+    ```
 
-Create a virtual environment:
+3.  Activate the environment:
 
-python -m venv venv
+    ***
+    * **macOS/Linux:**
+        ```bash
+        source venv/bin/activate
+        ```
+    * **Windows:**
+        ```bash
+        venv\Scripts\activate
+        ```
+    ***
 
+### 📦 3. Install Dependencies
 
-Activate the environment:
+Install all required Python packages using the `requirements.txt` file:
 
-macOS/Linux:
-
-source venv/bin/activate
-
-
-Windows:
-
-venv\Scripts\activate
-
-📦 3. Install Dependencies
-
-Install all required Python packages:
-
+```bash
 pip install -r requirements.txt
-
+```
 🗄️ 4. Database Setup (SQL)
-
-The backend uses PostgreSQL / MySQL / SQLite.
+The backend interacts with an SQL database (PostgreSQL / MySQL / SQLite).
 
 🔑 Add Database Credentials
+Create a file named .env in the backend directory to store sensitive credentials:
 
-Create an .env file in the backend directory:
+Ini, TOML
 
+# Database Credentials
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=your_username
 DB_PASSWORD=your_password
 DB_NAME=biomethane_db
-
 🛠️ Run Migrations
+Run database migrations (using your chosen framework's tool like Alembic / Flask-Migrate / Django) to set up the necessary schema:
 
-Depending on the tool used (Alembic / Flask-Migrate / Django):
+Bash
 
 python manage.py migrate
-
 ☁️ 5. AWS & Environment Configuration
-
-The system uses AWS for cloud storage, IoT logs, and monitoring.
+The system uses AWS for cloud storage, IoT logs, and monitoring. Update the .env file with the following variables.
 
 🔐 Add AWS Credentials
-AWS_ACCESS_KEY_ID=your_key
-AWS_SECRET_ACCESS_KEY=your_secret
-AWS_REGION=ap-south-1
+Ini, TOML
 
-⚙️ Additional Environment Variables
+# API and Logging Configuration
 API_KEY_SECRET=your_api_secret
 AWS_S3_BUCKET_NAME=your_bucket
 LOGGING_LEVEL=INFO
+
+# Optimization Constraint
 OPTIMIZATION_ENERGY_LIMIT=0.10
 
+# Note: OPTIMIZATION_ENERGY_LIMIT = 0.10 represents 10% 
+# of the previous day's total net energy generation, 
+# [cite_start]which is the maximum power allocated for optimization/investment[cite: 7].
 
-Note:
-OPTIMIZATION_ENERGY_LIMIT = 0.10 → 10% of previous day's net gas generation.
+# API and Logging Configuration
+API_KEY_SECRET=your_api_secret
+AWS_S3_BUCKET_NAME=your_bucket
+LOGGING_LEVEL=INFO
 
+# Optimization Constraint
+OPTIMIZATION_ENERGY_LIMIT=0.10
+
+# Note: OPTIMIZATION_ENERGY_LIMIT = 0.10 represents 10% 
+# of the previous day's total net energy generation, 
+# [cite_start]which is the maximum power allocated for optimization/investment[cite: 7].
 🚀 6. Run the API
-Development Mode (Flask / FastAPI)
+Development Mode (using Python/framework):
+
+Bash
+
 python app.py
+Production Mode (using a WSGI server like Gunicorn/uWSGI):
 
-Production Mode (Gunicorn)
+Bash
+
 gunicorn app:app
-
-
 The backend API is now live and ready to serve requests from the Flutter SCADA Frontend.
