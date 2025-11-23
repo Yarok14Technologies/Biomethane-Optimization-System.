@@ -222,7 +222,7 @@ Install all necessary Python packages (like Flask/Django/FastAPI for the API, an
 
 ```bash
 pip install -r requirements.txt
-
+ ```
 
 🛠️ Backend Setup Instructions — Python API
 
