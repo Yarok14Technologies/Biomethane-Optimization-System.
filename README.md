@@ -138,6 +138,158 @@ Ensure you have:
 cd Biomethane-Optimization-System/backend
 
 ```
+
+
+
+---
+
+
+# 🛠️ Backend Setup — Biomethane Optimization System (Python API)
+
+This backend provides:
+
+- REST API endpoints  
+- SQL database layer  
+- AWS cloud integration  
+- Optimization + economic logic  
+- Hardware/Firmware communication (ESP8266 / MSP430)
+
+---
+
+## 🔧 1. Prerequisites
+
+Ensure you have:
+
+- Python 3.x  
+- pip  
+- Virtual environment tools (`venv` / `conda`)  
+
+---
+
+## 📁 2. Navigate to Backend & Create Virtual Environment
+
+```bash
+cd Biomethane-Optimization-System/backend
+````
+
+### Create venv
+
+```bash
+python -m venv venv
+```
+
+### Activate venv
+
+#### macOS / Linux
+
+```bash
+source venv/bin/activate
+```
+
+#### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+---
+
+## 📦 3. Install Required Packages
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# 🗄️ 4. Environment Variables (`.env` file)
+
+Create a `.env` file inside `/backend`:
+
+```ini
+# -----------------------------
+# Database Settings
+# -----------------------------
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=your_username
+DB_PASSWORD=your_password
+DB_NAME=biomethane_db
+
+# -----------------------------
+# AWS Credentials
+# -----------------------------
+AWS_ACCESS_KEY_ID=your_key
+AWS_SECRET_ACCESS_KEY=your_secret
+AWS_REGION=ap-south-1
+AWS_S3_BUCKET=your_bucket_name
+
+# -----------------------------
+# App Settings
+# -----------------------------
+API_SECRET_KEY=your_api_secret
+LOG_LEVEL=INFO
+
+# -----------------------------
+# Optimization Settings
+# -----------------------------
+OPTIMIZATION_ENERGY_LIMIT=0.10
+```
+
+---
+
+# 🔧 5. Database Migration
+
+If you are using Flask-Migrate or Alembic:
+
+```bash
+python manage.py migrate
+```
+
+---
+
+# 🚀 6. Run the Backend API
+
+### Development Mode
+
+```bash
+python app.py
+```
+
+### Production Mode (Gunicorn)
+
+```bash
+gunicorn app:app
+```
+
+---
+
+# 🔍 7. Verify API is Running
+
+```bash
+curl http://127.0.0.1:5000/health
+```
+
+Expected response:
+
+```json
+{"status": "OK"}
+```
+
+---
+
+# 🎉 Backend Ready!
+
+You can now connect:
+
+* Flutter SCADA Frontend
+* ESP8266 / MSP430 Firmware
+* AWS Logging + Storage
+* Optimization Engine
+
+---
+
+
 ***
 ## 📁 Repository Structure
 
