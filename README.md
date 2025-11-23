@@ -160,3 +160,133 @@ Biomethane-Optimization-System/
 
     ```
 
+## 🛠️ Setup Instructions: Backend (Python API)
+
+The Python backend is responsible for developing the API that manages data interaction, potentially includes the economic algorithm logic, and interfaces between the cloud (AWS), database (SQL), and possibly the hardware/firmware components.
+
+### 1. Prerequisites
+
+You'll need **Python 3.x** installed on your machine. It's recommended to use a virtual environment for dependency management.
+
+### 2. Navigate and Create Environment
+
+1.  Navigate to the backend directory:
+    ```bash
+    cd Biomethane-Optimization-System/backend
+    ```
+
+2.  Create a virtual environment (e.g., named `venv`):
+    ```bash
+    python -m venv venv
+    ```
+
+3.  Activate the virtual environment:
+    * **On macOS/Linux:**
+        ```bash
+        source venv/bin/activate
+        ```
+    * **On Windows (Command Prompt/PowerShell):**
+        ```bash
+        venv\Scripts\activate
+        ```
+
+### 3. Install Dependencies
+
+Install all necessary Python packages (like Flask/Django/FastAPI for the API, and a database connector for SQL) using the `requirements.txt` file:
+
+```bash
+pip install -r requirements.txt
+
+
+🛠️ Backend Setup Instructions — Python API
+
+This backend powers the Biomethane Optimization System, handling API operations, SQL data interaction, AWS cloud communication, optimization logic, and hardware/firmware integration.
+
+🔧 1. Prerequisites
+
+Ensure you have the following installed:
+
+Python 3.x
+
+pip
+
+Virtual environment support (venv or conda) — recommended
+
+📁 2. Navigate & Create Virtual Environment
+
+Go to the backend directory:
+
+cd Biomethane-Optimization-System/backend
+
+
+Create a virtual environment:
+
+python -m venv venv
+
+
+Activate the environment:
+
+macOS/Linux:
+
+source venv/bin/activate
+
+
+Windows:
+
+venv\Scripts\activate
+
+📦 3. Install Dependencies
+
+Install all required Python packages:
+
+pip install -r requirements.txt
+
+🗄️ 4. Database Setup (SQL)
+
+The backend uses PostgreSQL / MySQL / SQLite.
+
+🔑 Add Database Credentials
+
+Create an .env file in the backend directory:
+
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=your_username
+DB_PASSWORD=your_password
+DB_NAME=biomethane_db
+
+🛠️ Run Migrations
+
+Depending on the tool used (Alembic / Flask-Migrate / Django):
+
+python manage.py migrate
+
+☁️ 5. AWS & Environment Configuration
+
+The system uses AWS for cloud storage, IoT logs, and monitoring.
+
+🔐 Add AWS Credentials
+AWS_ACCESS_KEY_ID=your_key
+AWS_SECRET_ACCESS_KEY=your_secret
+AWS_REGION=ap-south-1
+
+⚙️ Additional Environment Variables
+API_KEY_SECRET=your_api_secret
+AWS_S3_BUCKET_NAME=your_bucket
+LOGGING_LEVEL=INFO
+OPTIMIZATION_ENERGY_LIMIT=0.10
+
+
+Note:
+OPTIMIZATION_ENERGY_LIMIT = 0.10 → 10% of previous day's net gas generation.
+
+🚀 6. Run the API
+Development Mode (Flask / FastAPI)
+python app.py
+
+Production Mode (Gunicorn)
+gunicorn app:app
+
+
+The backend API is now live and ready to serve requests from the Flutter SCADA Frontend.
+
