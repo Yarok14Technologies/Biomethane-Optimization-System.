@@ -110,124 +110,35 @@ The Biomethane Optimization System is a hybrid hardware–software platform that
 
 ---
 
-🛠️ Backend Setup Instructions — Python API
+# 🛠️ Backend Setup — Biomethane Optimization System (Python API)
 
-The Python backend powers the Biomethane Optimization System, enabling:
+This backend provides:
 
-API operations
+- REST API endpoints  
+- SQL database layer  
+- AWS cloud integration  
+- Optimization + economic logic  
+- Hardware/Firmware communication (ESP8266 / MSP430)
 
-SQL database interaction
+---
 
-AWS cloud communication
+## 🔧 1. Prerequisites
 
-Optimization & economic algorithm logic
+Ensure you have:
 
-Hardware/Firmware integration (ESP8266 / MSP430)
+- Python 3.x  
+- pip  
+- Virtual environment tools (`venv` / `conda`)  
 
-🔧 1. Prerequisites
+---
 
-Make sure your machine has:
+## 📁 2. Navigate to Backend & Create Virtual Environment
 
-Python 3.x
-
-pip
-
-Virtual environment support (venv/conda)
-
-📁 2. Navigate & Create Virtual Environment
-
-Go to the backend directory:
-
+```bash
 cd Biomethane-Optimization-System/backend
 
-
-Create a virtual environment:
-
-python -m venv venv
-
-
-Activate the environment:
-
-macOS/Linux
-source venv/bin/activate
-
-Windows
-venv\Scripts\activate
-
-📦 3. Install Dependencies
-
-Install all backend Python packages:
-
-pip install -r requirements.txt
-
-🗄️ 4. Database Setup (SQL)
-
-The backend supports PostgreSQL / MySQL / SQLite depending on your deployment.
-
-🔑 Create the .env file
-
-Create a .env file inside the backend directory to store sensitive configuration:
-
-# -----------------------------
-# Database Credentials
-# -----------------------------
-DB_HOST=localhost
-DB_PORT=5432
-DB_USER=your_username
-DB_PASSWORD=your_password
-DB_NAME=biomethane_db
-
-🛠️ Run Migrations
-
-Use your selected framework tool (Django / Alembic / Flask-Migrate):
-
-python manage.py migrate
-
-☁️ 5. AWS & Environment Configuration
-
-The system uses AWS for:
-
-Cloud storage
-
-IoT device logs
-
-Remote monitoring
-
-Add AWS + API configuration to .env:
-
-# -----------------------------
-# AWS Credentials
-# -----------------------------
-AWS_ACCESS_KEY_ID=your_key
-AWS_SECRET_ACCESS_KEY=your_secret
-AWS_REGION=ap-south-1
-
-# -----------------------------
-# Application Configuration
-# -----------------------------
-API_KEY_SECRET=your_api_secret
-AWS_S3_BUCKET_NAME=your_bucket
-LOGGING_LEVEL=INFO
-
-# -----------------------------
-# Optimization Constraint
-# -----------------------------
-# 0.10 represents 10% of the previous day's
-# net energy generation allocated for optimization
-OPTIMIZATION_ENERGY_LIMIT=0.10
-
-🚀 6. Run the API
-Development Mode
-python app.py
-
-Production Mode (Gunicorn)
-gunicorn app:app
-
-✅ Backend is Ready
-
-Your backend API is now ready to serve the Flutter SCADA Frontend, IoT firmware, and AWS cloud.
-
-
+```
+***
 ## 📁 Repository Structure
 
 ```bash
