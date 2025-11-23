@@ -159,7 +159,6 @@ Biomethane-Optimization-System/
     └── diagrams/                     # System diagrams, PNG/SVG
 
     ```
-
 ## 🛠️ Setup Instructions: Backend (Python API)
 
 The Python backend is responsible for developing the API that manages data interaction, potentially includes the economic algorithm logic, and interfaces between the cloud (AWS), database (SQL), and possibly the hardware/firmware components.
@@ -289,4 +288,3 @@ gunicorn app:app
 
 
 The backend API is now live and ready to serve requests from the Flutter SCADA Frontend.
-
