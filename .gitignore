@@ -1,0 +1,97 @@
+# --------------------------
+# Python / Backend
+# --------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+venv/
+.env
+*.egg-info/
+*.egg
+*.log
+
+# Flask / Gunicorn
+instance/
+*.pid
+*.sock
+
+# Migrations
+migrations/versions/*.pyc
+
+# --------------------------
+# Database / SQL
+# --------------------------
+*.db
+*.sql~
+*.sqlite
+
+# --------------------------
+# Docker
+# --------------------------
+docker-compose.override.yml
+*.env
+*.log
+*.pid
+*.sock
+*.tmp
+
+# --------------------------
+# Flutter / Dart
+# --------------------------
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+.idea/
+*.iml
+*.lock
+
+# Android
+android/.gradle/
+android/.idea/
+android/build/
+android/app/build/
+*.apk
+*.aar
+*.keystore
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+ios/build/
+
+# --------------------------
+# VS Code / Editors
+# --------------------------
+.vscode/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+*.swp
+
+# --------------------------
+# Firmware / Embedded
+# --------------------------
+*.hex
+*.elf
+*.bin
+*.eep
+*.map
+*.o
+*.d
+
+# --------------------------
+# Logs & Temporary Files
+# --------------------------
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+*.log
