@@ -1,0 +1,28 @@
+# This file configures the Dart analyzer to check for errors, warnings, and lints.
+# More info: https://dart.dev/guides/language/analysis-options
+
+# Use recommended Flutter lints
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # General Dart style
+    prefer_const_constructors: true
+    prefer_const_literals_to_create_immutables: true
+    prefer_final_fields: true
+    prefer_final_locals: true
+    always_put_control_body_on_new_line: true
+    always_specify_types: true
+    prefer_single_quotes: true
+
+    # Flutter-specific rules
+    use_key_in_widget_constructors: true
+    avoid_unnecessary_containers: true
+    avoid_print: false  # allow print for debugging
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/build/**"
+    - "**/generated_plugin_registrant.dart"
