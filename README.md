@@ -114,28 +114,49 @@ The Biomethane Optimization System is a hybrid hardware–software platform that
 
 ```bash
 Biomethane-Optimization-System/
+│
 ├── .gitignore
-├── README.md
 ├── LICENSE
+├── README.md
+│
 ├── docs/
 │   ├── System-Overview.pdf
-│   └── User-Manual.md
-├── frontend/             # Flutter SCADA PLC Frontend
+│   ├── User-Manual.md
+│   ├── system-architecture.md
+│   ├── process-cycle.md
+│   ├── hardware-specifications.md
+│   └── economic-model.md
+│
+├── frontend/                         # Flutter SCADA PLC Frontend
 │   ├── lib/
+│   ├── assets/
 │   ├── pubspec.yaml
-│   └── ...
-├── backend/              # Python API Development
+│   └── README.md
+│
+├── backend/                          # Python API & SCADA Backend
 │   ├── api/
+│   ├── controllers/
+│   ├── models/
+│   ├── db/
+│   ├── utils/
 │   ├── requirements.txt
-│   └── ...
-├── database/             # SQL Schema and Migrations
+│   └── README.md
+│
+├── database/                         # SQL database schema & migrations
 │   ├── schema.sql
 │   └── migrations/
-├── firmware/             # Microcontroller Code
-│   ├── ESP8266/          # Cloud communication code
-│   └── MSP430/           # General-purpose processing code
-├── schematics/           # Hardware design files
-└── aws/                  # Cloud configuration
+│
+├── firmware/                         # Embedded firmware for controllers
+│   ├── esp8266/                      # Cloud communication
+│   └── msp430/                       # General-purpose processing
+│
+├── schematics/                       # Hardware circuit diagrams & wiring
+│
+├── cloud/
+│   └── aws-config/                   # AWS IoT, Lambda, DynamoDB, S3, IAM
+│
+└── assets/
+    └── diagrams/                     # System diagrams, PNG/SVG
 
     ```
 
