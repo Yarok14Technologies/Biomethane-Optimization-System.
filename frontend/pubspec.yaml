@@ -1,24 +1,45 @@
 name: frontend
-description: Flutter SCADA frontend for Biomethane Optimization System
+description: Flutter SCADA Frontend for Biomethane Optimization System
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
+  cupertino_icons: ^1.0.2
   http: ^1.1.0
-  fl_chart: ^0.55.2
+  provider: ^6.1.1
+  shared_preferences: ^2.2.2
+  web_socket_channel: ^3.0.0
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.1
+  syncfusion_flutter_gauges: ^23.1.44
+  syncfusion_flutter_charts: ^23.1.44
+  fl_chart: ^0.61.0
+  percent_indicator: ^4.2.2
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.0
 
 flutter:
   uses-material-design: true
-
-  # Assets
+  
   assets:
-    - assets/images/yarok14_cover.jpeg
+    - assets/icons/
+    - assets/images/
+    
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/roboto/Roboto-Regular.ttf
+        - asset: assets/fonts/roboto/Roboto-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/roboto/Roboto-Medium.ttf
+          weight: 500
