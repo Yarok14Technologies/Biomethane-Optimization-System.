@@ -4,14 +4,14 @@ class SensorTile extends StatelessWidget {
   final String sensorName;
   final double value;
 
-  SensorTile({required this.sensorName, required this.value});
+  const SensorTile({super.key, required this.sensorName, required this.value});
 
   @override
   Widget build(BuildContext context) {
     IconData icon;
-    if (sensorName.toLowerCase().contains("temp")) {
+    if (sensorName.toLowerCase().contains('temp')) {
       icon = Icons.thermostat;
-    } else if (sensorName.toLowerCase().contains("ph")) {
+    } else if (sensorName.toLowerCase().contains('ph')) {
       icon = Icons.opacity;
     } else {
       icon = Icons.speed;

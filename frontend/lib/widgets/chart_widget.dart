@@ -4,26 +4,26 @@ import 'package:fl_chart/fl_chart.dart';
 class ChartWidget extends StatelessWidget {
   final String title;
 
-  ChartWidget({required this.title});
+  const ChartWidget({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
-          children: [
-            Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          children: <Widget>[
+            Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             SizedBox(
               height: 200,
               child: LineChart(LineChartData(
-                lineBarsData: [
+                lineBarsData: <LineChartBarData>[
                   LineChartBarData(
-                    spots: [
-                      FlSpot(0, 1),
-                      FlSpot(1, 1.5),
-                      FlSpot(2, 1.4),
-                      FlSpot(3, 2),
+                    spots: <FlSpot>[
+                      const FlSpot(0, 1),
+                      const FlSpot(1, 1.5),
+                      const FlSpot(2, 1.4),
+                      const FlSpot(3, 2),
                     ],
                     isCurved: true,
                     color: const Color.fromARGB(255, 62, 98, 63),

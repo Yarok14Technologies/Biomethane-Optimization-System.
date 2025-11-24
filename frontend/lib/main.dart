@@ -7,10 +7,12 @@ import 'screens/settings_screen.dart';
 import 'theme/app_theme.dart';
 
 void main() {
-  runApp(BiomethaneApp());
+  runApp(const BiomethaneApp());
 }
 
 class BiomethaneApp extends StatelessWidget {
+  const BiomethaneApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,12 +20,12 @@ class BiomethaneApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-      routes: {
-        '/': (context) => LoginScreen(),
-        '/dashboard': (context) => DashboardScreen(),
-        '/devices': (context) => DeviceControlScreen(),
-        '/analytics': (context) => AnalyticsScreen(),
-        '/settings': (context) => SettingsScreen(),
+      routes: <String, WidgetBuilder>{
+        '/': (BuildContext context) => LoginScreen(),
+        '/dashboard': (BuildContext context) => const DashboardScreen(),
+        '/devices': (BuildContext context) => const DeviceControlScreen(),
+        '/analytics': (BuildContext context) => const AnalyticsScreen(),
+        '/settings': (BuildContext context) => const SettingsScreen(),
       },
     );
   }

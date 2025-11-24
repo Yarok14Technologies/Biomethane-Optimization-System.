@@ -8,9 +8,11 @@ class ApiService {
   ApiService(this.baseUrl);
 
   Future<List<Sensor>> getSensors() async {
-    final response = await http.get(Uri.parse('$baseUrl/sensors'));
+    final http.Response response = await http.get(Uri.parse('$baseUrl/sensors'));
     if (response.statusCode == 200) {
-      List jsonList = jsonDecode(response.body);
+      // ignore: always_specify_types
+      final List jsonList = jsonDecode(response.body);
+      // ignore: always_specify_types
       return jsonList.map((json) => Sensor.fromJson(json)).toList();
     } else {
       throw Exception('Failed to fetch sensors');
