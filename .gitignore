@@ -1,97 +1,88 @@
-# --------------------------
-# Python / Backend
-# --------------------------
+# ─── Python ─────────────────────────────────────────────────────────────────
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.sqlite3
-venv/
-.env
-*.egg-info/
-*.egg
-*.log
-
-# Flask / Gunicorn
-instance/
-*.pid
-*.sock
-
-# Migrations
-migrations/versions/*.pyc
-
-# --------------------------
-# Database / SQL
-# --------------------------
-*.db
-*.sql~
-*.sqlite
-
-# --------------------------
-# Docker
-# --------------------------
-docker-compose.override.yml
-*.env
-*.log
-*.pid
-*.sock
-*.tmp
-
-# --------------------------
-# Flutter / Dart
-# --------------------------
+*.py[cod]
+*$py.class
+*.so
+.Python
 build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ─── Flutter / Dart ──────────────────────────────────────────────────────────
+.dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
 .packages
 .pub-cache/
 .pub/
-.idea/
-*.iml
-*.lock
+build/
+pubspec.lock
 
-# Android
-android/.gradle/
-android/.idea/
-android/build/
-android/app/build/
-*.apk
-*.aar
-*.keystore
-
-# iOS
-ios/Pods/
-ios/.symlinks/
-ios/Flutter/Flutter.podspec
-ios/Flutter/Generated.xcconfig
-ios/Flutter/ephemeral/
-ios/build/
-
-# --------------------------
-# VS Code / Editors
-# --------------------------
-.vscode/
-*.code-workspace
-*.sublime-project
-*.sublime-workspace
-*.swp
-
-# --------------------------
-# Firmware / Embedded
-# --------------------------
-*.hex
-*.elf
-*.bin
-*.eep
-*.map
-*.o
+# ─── Firmware ────────────────────────────────────────────────────────────────
+firmware/esp8266/*.bin
+firmware/esp8266/*.elf
+firmware/msp430/*.elf
+firmware/msp430/*.hex
+firmware/msp430/*.map
 *.d
 
-# --------------------------
-# Logs & Temporary Files
-# --------------------------
-*.tmp
-*.bak
+# ─── AWS / Secrets ───────────────────────────────────────────────────────────
+certs/
+*.pem
+*.key
+*.crt
+aws-credentials.json
+
+# ─── Database ────────────────────────────────────────────────────────────────
+*.sqlite3
+*.db
+pg_data/
+
+# ─── Docker ──────────────────────────────────────────────────────────────────
+.docker/
+
+# ─── IDEs ────────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
 *.swp
-*.DS_Store
+*.swo
+.DS_Store
+Thumbs.db
+
+# ─── Logs ────────────────────────────────────────────────────────────────────
 *.log
+logs/
+
+# ─── KiCad ───────────────────────────────────────────────────────────────────
+schematics/backups/
+schematics/*-backups/
+*.bak
+*-save.kicad_pcb
+*-save.sch
+
+# ─── Misc ────────────────────────────────────────────────────────────────────
+*.csv.bak
+node_modules/
